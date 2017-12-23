@@ -1,0 +1,47 @@
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <div class="form-group">
+                <input class="form-control" type="text" name="problem" placeholder="Type Your Problem and Hit Enter..." [(ngModel)]="problem" (keyup.enter)="searchProblem()">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div *ngIf="answer" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Related Questions</h3>
+  </div>
+  <div class="panel-body">
+    
+    <div *ngFor="let ans of answer">
+
+	    <div class="row">
+
+	    	<div class="col-md-12">
+	    		<h4><a href="{{ ans.link }}" target="blank" style="text-decoration: none">{{ ans.title }}</a></h4>
+	    		Answers <span class="badge">{{ ans.answer_count }}</span>
+
+	    		<br>
+
+	    		<div *ngFor="let tag of ans.tags" style="float: left;">
+
+	    			<span class="label label-success"> {{ tag  }} </span>
+
+	    		</div>
+	    		<br>
+	    		<hr>
+	    	</div>
+
+
+
+	    </div>
+	</div>
+
+  </div>
+</div>
